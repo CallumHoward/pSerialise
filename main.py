@@ -9,6 +9,8 @@ __license__ = "MIT"
 
 import argparse
 import pytest
+import sys
+from JsonSerialiser import JsonSerialiser
 from PersonalData import PersonalData
 
 
@@ -25,19 +27,34 @@ def main(args):
 
     if args.list_formats:
         print("Supported formats:", ["json", "xml", "pickle"])
+        return
 
     if args.test:
         pytest.main("test_pserialise.py")
+        return
 
-    #TODO if file not specified in args, create data to serialise interactively
-    data = interactively_read_data()
-    #TODO serialise
+    if args.deserialise:
+        with open(args.target_filename, 'r') as f:
+            serialised_data = f.read()
 
+        data = JsonSerialiser.deserialise(serialised_data, PersonalData)
+        print(data)
+
+    else:
+        data = interactively_read_data()
+        serialised_data = JsonSerialiser.serialise(data)
+        with open(args.target_filename, 'w') as f:
+            f.write(serialised_data)
 
 
 if __name__ == "__main__":
     """ This is executed when run from the command line """
     parser = argparse.ArgumentParser()
+
+    parser.add_argument("target_filename", help="filename to read or write")
+
+    # Optional argument flag which defaults to False
+    parser.add_argument("-d", "--deserialise", action="store_true", default=False)
 
     # Optional argument flag which defaults to False
     parser.add_argument("-t", "--test", action="store_true", default=False)

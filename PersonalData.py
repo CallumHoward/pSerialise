@@ -15,3 +15,12 @@ class PersonalData():
             'home': phone,
             # add additional phone numbers, eg `'work': phone,`
         }
+
+
+    @staticmethod
+    def dict_decoder(input_dict):
+        import pdb; pdb.set_trace()
+        return PersonalData(
+                input_dict['name'],
+                input_dict['address'],
+                input_dict['phone'])
