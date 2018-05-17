@@ -11,22 +11,3 @@ class PersonalData():
         self.name = name
         self.address = address
         self.phone = phone
-
-        #self.addresses = {
-        #    'billing': address,
-        #    # add additional addresses, eg. `'mail': address,`
-        #}
-
-        #self.phones = {
-        #    'home': phone,
-        #    # add additional phone numbers, eg `'work': phone,`
-        #}
-
-
-    #@staticmethod
-    #def dict_decoder(input_dict):
-    #    import pdb; pdb.set_trace()
-    #    return PersonalData(
-    #            input_dict['name'],
-    #            input_dict['address'],
-    #            input_dict['phone'])

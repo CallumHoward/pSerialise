@@ -10,7 +10,7 @@ class JsonSerialiser(Serialiser):
     @staticmethod
     def serialise(data):
         try:
-            serialised = json.dumps(data.__dict__, indent=4)
+            serialised = json.dumps([element.__dict__ for element in data], indent=4)
 
         except TypeError:
             raise
@@ -24,8 +24,8 @@ class JsonSerialiser(Serialiser):
     @staticmethod
     def deserialise(serialised, dataContainer):
         try:
-            raw_data = json.loads(serialised)  # loads as a dictionary
-            data = dataContainer(**raw_data)  # expand into keyword arguments
+            raw_data = json.loads(serialised)  # load as a list of dictionaries
+            data = [dataContainer(**element) for element in raw_data]
 
         except json.decoder.JSONDecodeError:
             raise Serialiser.DeserialiseError(
