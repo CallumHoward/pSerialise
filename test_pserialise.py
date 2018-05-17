@@ -6,6 +6,8 @@ You can auto-discover and run all tests with this command:
 Documentation: https://docs.pytest.org/en/latest/
 """
 
+#TODO add tests for serialiser classes
+
 
 def inc(x):
     return x + 1
