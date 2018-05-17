@@ -9,9 +9,11 @@ class JsonSerialiser(Serialiser):
 
     @staticmethod
     def serialise(data):
-        return json.dumps(data.__dict__)
+        return json.dumps(data.__dict__, indent=4)
 
 
     @staticmethod
     def deserialise(serialised, dataContainer):
-        return json.loads(serialised, cls=dataContainer)
+        #TODO exception handling
+        data = json.loads(serialised)  # loads as a dictionary
+        return dataContainer(**data)  # expand into keyword arguments

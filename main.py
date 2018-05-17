@@ -33,17 +33,24 @@ def main(args):
         pytest.main("test_pserialise.py")
         return
 
+    if args.format == "xml":
+        pass
+    elif args.format == "pickle":
+        pass
+    else:  # args.format == "json":
+        serialiser = JsonSerialiser
+
     if args.deserialise:
-        with open(args.target_filename, 'r') as f:
+        with open(args.target_filename, "r") as f:
             serialised_data = f.read()
 
-        data = JsonSerialiser.deserialise(serialised_data, PersonalData)
+        data = serialiser.deserialise(serialised_data, PersonalData)
         print(data)
 
     else:
         data = interactively_read_data()
-        serialised_data = JsonSerialiser.serialise(data)
-        with open(args.target_filename, 'w') as f:
+        serialised_data = serialiser.serialise(data)
+        with open(args.target_filename, "w") as f:
             f.write(serialised_data)
 
 
@@ -61,6 +68,9 @@ if __name__ == "__main__":
 
     # Optional argument flag which defaults to False
     parser.add_argument("-l", "--list-formats", action="store_true", default=False)
+
+    # Optional argument flag which defaults to False
+    parser.add_argument("-f", "--format", action="store", dest="format")
 
     # Specify output of "--version"
     parser.add_argument(
