@@ -4,7 +4,7 @@ from Serialiser import Serialiser
 
 class JsonSerialiser(Serialiser):
     """
-    JsonSerialiser, json implementation of Serialiser
+    JsonSerialiser, JSON implementation of Serialiser
     """
 
     @staticmethod

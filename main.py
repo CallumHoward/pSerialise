@@ -12,6 +12,8 @@ import pytest
 import sys
 import pathlib
 from JsonSerialiser import JsonSerialiser
+from XmlSerialiser import XmlSerialiser
+from PickleSerialiser import PickleSerialiser
 from PersonalData import PersonalData
 
 
@@ -21,7 +23,8 @@ def main(arg_parser):
     args, filenames = arg_parser.parse_known_args()
 
     if args.list_formats:
-        print("Supported formats:", ["json", "xml", "pickle"])
+        #print("Supported formats:", ["json", "xml", "pickle"])
+        print("Supported formats:", ["json", "xml"])
         return
 
     if args.test:
@@ -72,9 +75,9 @@ def get_extension(path_string):
 
 def get_serialiser(format):
     if format == "xml":
-        pass
-    elif format == "pickle":
-        pass
+        return XmlSerialiser
+    #elif format == "pickle":
+    #    return PickleSerialiser
     elif format == "json":
         return JsonSerialiser
     else:

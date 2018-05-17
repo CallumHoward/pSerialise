@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Callum Howard",
+        "address": "13 Harvard St, Gladesville",
+        "phone": "044448745"
+    },
+    {
+        "name": "Tony Stark",
+        "address": "10880 Malibu Point, Malibu, Calif",
+        "phone": "0458278746"
+    },
+    {
+        "name": "Bruce Banner",
+        "address": "42 Green Street, Dayton, Ohio",
+        "phone": "05553326632"
+    },
+    {
+        "name": "Natasha Romanova",
+        "address": "64 Armii Ul., Volgograd",
+        "phone": "0449388745"
+    }
+]

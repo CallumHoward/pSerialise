@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Entry>
+        <name>Callum Howard</name>
+        <address>13 Harvard St, Gladesville</address>
+        <phone>044448745</phone>
+    </Entry>
+
+    <Entry>
+        <name>Tony Stark</name>
+        <address>10880 Malibu Point, Malibu, Calif</address>
+        <phone>0458278746</phone>
+    </Entry>
+
+    <Entry>
+        <name>Bruce Banner</name>
+        <address>42 Green Street, Dayton, Ohio</address>
+        <phone>05553326632</phone>
+    </Entry>
+
+    <Entry>
+        <name>Natasha Romanova</name>
+        <address>64 Armii Ul., Volgograd</address>
+        <phone>0449388745</phone>
+    </Entry>
+</Data>
