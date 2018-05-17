@@ -18,3 +18,8 @@ class Serialiser(abc.ABC):
     def deserialise(serialised):
         """return deserialised data"""
         pass
+
+
+    class DeserialiseError(Exception):
+        def __init__(self, message):
+            super().__init__(message)

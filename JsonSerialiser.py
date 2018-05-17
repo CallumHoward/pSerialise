@@ -14,6 +14,19 @@ class JsonSerialiser(Serialiser):
 
     @staticmethod
     def deserialise(serialised, dataContainer):
-        #TODO exception handling
-        data = json.loads(serialised)  # loads as a dictionary
-        return dataContainer(**data)  # expand into keyword arguments
+        try:
+            raw_data = json.loads(serialised)  # loads as a dictionary
+            data = dataContainer(**raw_data)  # expand into keyword arguments
+
+        except json.decoder.JSONDecodeError:
+            raise Serialiser.DeserialiseError(
+                    "Failed to decode JSON. Could not deserialise target data")
+
+        except TypeError:
+            raise Serialiser.DeserialiseError(
+                    "Failed to restore python object. Could not deserialise target data")
+
+        except:  # propagate unexpected exceptions
+            raise
+
+        return data
