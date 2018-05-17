@@ -9,7 +9,16 @@ class JsonSerialiser(Serialiser):
 
     @staticmethod
     def serialise(data):
-        return json.dumps(data.__dict__, indent=4)
+        try:
+            serialised = json.dumps(data.__dict__, indent=4)
+
+        except TypeError:
+            raise
+
+        except:
+            raise
+
+        return serialised
 
 
     @staticmethod
